@@ -2,7 +2,7 @@
 
 build:
 ````
-mvnw clean package
+mvn clean package
 ````
 
 run:
