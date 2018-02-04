@@ -1,4 +1,4 @@
-package com.github.mgramin.funny_microservices_sns.account_service;
+package com.github.mgramin.funn_microservices_sns.message_service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class App {
 
 	@Autowired
-    AccountRepository repository;
+    MessageRepository repository;
 
 	public static void main(String[] args) {
         SpringApplication.run(App.class, args);

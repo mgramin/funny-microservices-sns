@@ -11,7 +11,7 @@ cd account_service
 mvn spring-boot:run
 ````
 
-go to:
+go toAccount:
 ````
 localhost:8080/account
 ````
