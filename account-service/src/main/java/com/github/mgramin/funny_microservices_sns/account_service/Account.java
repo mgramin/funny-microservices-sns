@@ -2,20 +2,13 @@ package com.github.mgramin.funny_microservices_sns.account_service;
 
 import lombok.Getter;
 import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.UUID;
-
-@Entity
+@Document(collection = "message")
 @ToString @Getter
 public class Account {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
 

@@ -1,4 +1,4 @@
-package com.github.mgramin.funn_microservices_sns.message_service;
+package com.github.mgramin.funny_microservices_sns.message_service;
 
 import lombok.Getter;
 import lombok.ToString;

@@ -1,7 +1,7 @@
-package com.github.mgramin.funn_microservices_sns.message_service.rest;
+package com.github.mgramin.funny_microservices_sns.message_service.rest;
 
-import com.github.mgramin.funn_microservices_sns.message_service.Message;
-import com.github.mgramin.funn_microservices_sns.message_service.MessageRepository;
+import com.github.mgramin.funny_microservices_sns.message_service.Message;
+import com.github.mgramin.funny_microservices_sns.message_service.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
