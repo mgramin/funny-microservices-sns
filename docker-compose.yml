@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  db:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    networks:
+      mynetwork:
+        aliases:
+          - db_server
+    hostname: db_server
+  message-service:
+    image: mgramin/message-service
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      db_dev_url: url...
+#    volumes:
+#      - ./:/sql-boot/conf/oracle
+#      - ./application.yml:/sql-boot/application.yml
+
+networks:
+  mynetwork:
+    driver: bridge
