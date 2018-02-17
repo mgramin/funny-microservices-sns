@@ -11,9 +11,6 @@
 
     <artifactId>message-service</artifactId>
 
-    <properties>
-        <docker.image.prefix>mgramin</docker.image.prefix>
-    </properties>
 
 
     <dependencies>
@@ -23,32 +20,5 @@
             <version>2.0.3.RELEASE</version>
         </dependency>
     </dependencies>
-
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.11</version>
-                <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}
-                    </imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>*.*</include>
-                        </resource>
-                    </resources>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

@@ -25,6 +25,9 @@ class BasicConfiguration {
         @Value("${cassandra.port}")
         int port;
 
+        @Value("${cassandra.host}")
+        String host;
+
         @Bean
         public CassandraTemplate cassandraTemplate(Session session) {
             return new CassandraTemplate(session);
@@ -38,7 +41,7 @@ class BasicConfiguration {
 
         @Override
         public String getContactPoints() {
-            return "localhost";
+            return host;
         }
 
         @Override

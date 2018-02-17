@@ -25,7 +25,7 @@ public class AccountControllerTest {
     private static final int MONGO_PORT = 27017;
 
     @ClassRule
-    public static GenericContainer mongo = new GenericContainer("mongo:3.1.5")
+    public static GenericContainer mongo = new GenericContainer("mongo:latest")
             .withExposedPorts(MONGO_PORT);
 
     @Autowired
