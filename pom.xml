@@ -9,6 +9,7 @@
     <modules>
         <module>account-service</module>
         <module>message-service</module>
+        <module>discovery-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -54,12 +55,13 @@
 			<scope>test</scope>
         </dependency>
 
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+
+
 
     </dependencies>
 
