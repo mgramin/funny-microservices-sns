@@ -1,6 +1,19 @@
 version: '3'
 services:
 
+  discovery-service:
+    image: mgramin/discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - mynetwork
+    depends_on:
+      - message-service
+      - account-service
+    links:
+      - message-service
+      - account-service
+
   message-service:
     image: mgramin/message-service
     ports:
@@ -16,6 +29,7 @@ services:
     environment:
       - DB_HOST=cassandra_db
       - DB_PORT=9042
+      - DISCOVERY_SERVER=http://discovery-service:8761/eureka/
 
   account-service:
     image: mgramin/account-service
@@ -32,6 +46,7 @@ services:
     environment:
       - DB_HOST=mongo_db
       - DB_PORT=27017
+      - DISCOVERY_SERVER=http://discovery-service:8761/eureka/
 
   cassandra_db:
     image: cassandra:latest
