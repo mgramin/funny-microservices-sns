@@ -14,7 +14,8 @@ services:
     links:
       - cassandra_db
     environment:
-      cassandra.host: cassandra_db
+      - DB_HOST=cassandra_db
+      - DB_PORT=9042
 
   account-service:
     image: mgramin/account-service
@@ -29,8 +30,8 @@ services:
     links:
       - mongo_db
     environment:
-      spring.data.mongodb.host: mongo_db
-      spring.data.mongodb.port: 27017
+      - DB_HOST=mongo_db
+      - DB_PORT=27017
 
   cassandra_db:
     image: cassandra:latest
