@@ -36,7 +36,8 @@ public class MessageController {
     @GetMapping("/message")
     @ResponseBody
     @Transactional(readOnly = true)
-    public Iterable<Message> findAllmessages() {
+    public Iterable<Message> findAllMessages() {
+        log.info("find all messages ...");
         return this.messageRepository.findAll();
     }
 

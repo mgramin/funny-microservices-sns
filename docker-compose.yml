@@ -42,6 +42,23 @@ services:
       - DB_PORT=9042
       - DISCOVERY_SERVER=http://discovery-service:8761/eureka/
 
+  message-service-2:
+    image: mgramin/message-service
+    ports:
+      - "8081:8080"
+    entrypoint: dockerize -wait tcp://cassandra_db:9042 -timeout 30s
+    command: java -Djava.security.egd=file:/dev/./urandom -Dloader.path='.' -jar ./message-service.jar
+    networks:
+      - mynetwork
+    depends_on:
+      - cassandra_db
+    links:
+      - cassandra_db
+    environment:
+      - DB_HOST=cassandra_db
+      - DB_PORT=9042
+      - DISCOVERY_SERVER=http://discovery-service:8761/eureka/
+
   account-service:
     image: mgramin/account-service
     ports:
